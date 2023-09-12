@@ -14,9 +14,12 @@ I also recommend you install the following useful VS Code extensions:
 - [godot-tools](https://marketplace.visualstudio.com/items?itemName=geequlim.godot-tools) - Make sure you use "Open Folder" and select your entire project folder for this to work properly!
 - [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens) - Useful for source control within VS Code.
 
-## Acknowledgments
+## Notes
 
-The low poly assets used in this lecture were from the Synty Studios [Polygon Educational Bundle](https://assetstore.unity.com/student-plan-pack1).  These asset packs are available for free through the [Unity Student plan](https://assetstore.unity.com/student-plan-pack1) and must be downloaded separately.
+There are a couple additional notes regarding this lecture:
+
+- The bug I encountered at the end of the class was actually due to an environment variable that was overriding the default OpenXR runtime. I had set it a month ago while working on a VR simulator as a side project and then forgotten about it.  Note to self: don't set global environment variables for temporary functionality; use a script instead. 
+- I forgot to mention that Godot has an integrated code editor. This is the default option when editing scripts, and it works quite well. However, if you prefer to use VS Code or another external IDE, you can set the path in Editor_>Editor Settings->Text Editor->External.
 
 ## License
 

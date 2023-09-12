@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://bbsa6xrnhe8ps"]
+
+[ext_resource type="Script" path="res://scripts/InitializeXR.gd" id="1_jrl60"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mdpus"]
+sky_top_color = Color(0.462745, 0.537255, 0.635294, 1)
+sky_horizon_color = Color(0.665686, 0.676564, 0.692074, 1)
+ground_horizon_color = Color(0.665686, 0.676564, 0.692074, 1)
+
+[sub_resource type="Sky" id="Sky_aggyh"]
+sky_material = SubResource("ProceduralSkyMaterial_mdpus")
+
+[sub_resource type="Environment" id="Environment_0mcbd"]
+background_mode = 2
+sky = SubResource("Sky_aggyh")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iafdy"]
+albedo_color = Color(0.101961, 0.380392, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ituyj"]
+albedo_color = Color(0.215686, 0.192157, 1, 1)
+
+[node name="Node3D" type="Node3D"]
+transform = Transform3D(0.084617, 0, -0.996414, 0, 1, 0, 0.996414, 0, 0.084617, 0, 0, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_0mcbd")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 100, 0, -0.5, 0)
+material_override = SubResource("StandardMaterial3D_iafdy")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="."]
+transform = Transform3D(1, 0, 7.45058e-09, 0, 1, 0, -7.45058e-09, 0, 1, 0, 1.5, -3)
+material = SubResource("StandardMaterial3D_ituyj")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.716667, -0.116758, 0.687572, 0.536886, 0.536886, 0.650774, -0.445131, 0.835536, -0.322082, 0, 0, 0)
+
+[node name="XROrigin3D" type="XROrigin3D" parent="."]
+transform = Transform3D(1, 0, 7.45058e-09, 0, 1, 0, -7.45058e-09, 0, 1, 0, 0, 0)
+script = ExtResource("1_jrl60")
+
+[node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D"]
+transform = Transform3D(0.999999, 0, 1.49012e-08, 0, 1, 0, -7.45058e-09, 0, 0.999999, 0, 1.5, 0)
